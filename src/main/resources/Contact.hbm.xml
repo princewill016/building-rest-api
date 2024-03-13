@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping package="com.example.restapi.restapi">
+    <class name="Contact" table="info">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" column="first_name" type="string" />
+        <property name="lastName" column="last_name" type="string" />
+        <property name="email" column="email" type="string" />
+        <property name="gender" column="gender" type="char" />
+    <property name="dateOfBirth" column="date_of_birth" type="java.time.LocalDate" />
+
+    </class>
+</hibernate-mapping>
