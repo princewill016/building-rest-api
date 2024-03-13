@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
@@ -16,8 +17,11 @@
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
 
-        <!-- Disable the second-level cache -->
-        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <!-- Enable second-level cache -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+
+        <!-- Specify Ehcache as the cache provider -->
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
 
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
@@ -26,6 +30,7 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!-- Mapping files -->
-    <mapping resource="Contact.hbm.xml"/>
+        <mapping resource="Contact.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
+
